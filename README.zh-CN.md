@@ -12,6 +12,16 @@ SPARKX i8 的四通道热端主打快速换料。如果切换后冲刷不足，�
 
 两份试片已用 [Creality Print 7.3.2](https://github.com/CrealityOfficial/CrealityPrint/releases/tag/v7.3.2) 切片检查。实际表现取决于设备、固件和耗材。
 
+## 推荐安装方式
+
+> **强烈建议只替换官方机型的「换料 G-code」字段。** 从当前版本的官方 SPARKX i8 预设另存一份，再改这一个字段。这样可沿用当前版本的喷嘴、运动、温控和其他机器设置，减少升级后旧的整套预设覆盖新版默认值的情况。官方更新后，请从更新后的机型预设重新另存副本，确认模板兼容并重新切片核对。
+
+1. 在 **Prepare** 选择官方 **SPARKX i8 0.4 mm**，点击机型旁的铅笔，进入 **Machine G-code → Change filament G-code**。
+2. 备份该字段的原内容，按当前工艺的擦料塔开关选择模板。复制所选文件的全文，替换该字段，再用 **Save as** 保存为新的用户机型预设。
+   - [带擦料塔换料 G-code](gcode/sparkx-i8-with-tower-change-filament.txt)
+   - [无擦料塔换料 G-code](gcode/sparkx-i8-no-tower-change-filament.txt)
+3. 按下文核对切片结果。只替换换料 G-code 时，带塔冲刷量仍由当前的工艺和耗材预设决定。无塔时，侧刷代码依赖切片器调用换料模板。
+
 ## 1. 打开试片或导入配置
 
 最快的方法是把[带塔](presets/with-tower/)或[无塔](presets/no-tower/)文件夹里的 `.3mf` **作为项目打开**。试片有六段色带，顶部开放，便于观察内部填充。切片前核对载入的预设。

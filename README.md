@@ -12,6 +12,16 @@ Experimental Creality Print presets for the **SPARKX i8 with a 0.4 mm nozzle and
 
 Both test plates were checked in [Creality Print 7.3.2](https://github.com/CrealityOfficial/CrealityPrint/releases/tag/v7.3.2). Hardware behavior depends on the printer, firmware, and filament.
 
+## Recommended installation
+
+> **Strongly recommended: replace only the Change filament G-code field.** Save a copy of the official SPARKX i8 printer preset from your current Creality Print version and edit that one field. This preserves the current nozzle, motion, temperature, and other machine settings, reducing the chance of an older preset overriding updated defaults. After upgrading, start from a fresh copy of the updated official preset, check template compatibility, and verify a new slice.
+
+1. In **Prepare**, select the official **SPARKX i8 0.4 mm** preset, click the pencil next to it, and open **Machine G-code → Change filament G-code**.
+2. Back up the current field and choose the template that matches your **Prime tower** setting. Copy the entire file into the field, then use **Save as** to create a new user printer preset.
+   - [With-tower filament-change G-code](gcode/sparkx-i8-with-tower-change-filament.txt)
+   - [No-tower filament-change G-code](gcode/sparkx-i8-no-tower-change-filament.txt)
+3. Verify the sliced output as described below. With a tower, its purge amount still comes from the selected process and filament presets. Without a tower, the side purge depends on the slicer invoking the filament-change template.
+
 ## 1. Open a test project or import presets
 
 For the quickest check, open the `.3mf` from the [with-tower](presets/with-tower/) or [no-tower](presets/no-tower/) folder as a **project**. The included coupon has six color bands and an open top so you can inspect the infill. Check the loaded presets before slicing.
