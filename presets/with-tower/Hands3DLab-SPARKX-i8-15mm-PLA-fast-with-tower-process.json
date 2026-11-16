@@ -1,0 +1,17 @@
+{
+  "type": "process",
+  "from": "User",
+  "name": "Hands3DLab - SPARKX i8 0.15mm - With Tower - 15mm Purge - PLA Fast",
+  "print_settings_id": "Hands3DLab - SPARKX i8 0.15mm - With Tower - 15mm Purge - PLA Fast",
+  "inherits": "0.20mm Standard @SPARKX i8 0.4 nozzle",
+  "version": "26.11.13.15",
+  "enable_prime_tower": "1",
+  "bottom_fill_flush_layers": "0",
+  "top_fill_flush_layers": "0",
+  "flush_into_infill": "0",
+  "flush_into_objects": "0",
+  "flush_into_skeleton": "0",
+  "flush_into_solid_skeleton": "0",
+  "flush_into_support": "0",
+  "description": "Author: Hands3DLab | Pair with the 15 mm PLA Fast printer preset."
+}

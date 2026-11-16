@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="482" viewBox="0 0 1040 482" role="img" aria-labelledby="title desc">
+  <title id="title">Creality Print Prepare page</title>
+  <desc id="desc">Illustrated layout. 1 Printer on the left, 2 Filament and 3 Process on the right, 4 Slice plate at the foot of the build area.</desc>
+  <rect width="1040" height="482" rx="20" fill="#eef1f4"/>
+  <rect x="16" y="16" width="1008" height="450" rx="14" fill="#fff"/>
+  <path d="M30 16H1010q14 0 14 14v47H16V30q0-14 14-14Z" fill="#18232e"/>
+  <g font-family="system-ui, sans-serif" fill="#1d2733">
+    <text x="39" y="55" font-size="19" font-weight="600" fill="#fff">Creality Print</text>
+    <text x="487" y="53" font-size="19" font-weight="700" fill="#fff" text-anchor="middle">Prepare</text>
+    <path d="M446 64h82" stroke="#55c5a4" stroke-width="3"/>
+    <text x="565" y="53" font-size="18" fill="#afb9c7">Preview</text>
+    <rect x="35" y="99" width="275" height="102" rx="12" fill="#f3f6f8"/>
+    <text x="82" y="133" font-size="18" font-weight="700">Printer</text>
+    <rect x="52" y="148" width="242" height="33" rx="6" fill="#fff" stroke="#c3ccd5"/>
+    <text x="65" y="171" font-size="15">Hands3DLab · SPARKX i8</text>
+    <path d="m270 161 5 5 5-5" stroke="#677686" fill="none" stroke-width="2"/>
+    <text x="51" y="228" font-size="15" fill="#435367">Nozzle diameter: 0.4 mm</text>
+    <rect x="33" y="274" width="605" height="116" rx="12" fill="#e7edf2"/>
+    <rect x="217" y="293" width="236" height="79" rx="5" fill="#ced8e2" stroke="#aab8c7"/>
+    <path d="M219 313h232m-232 19h232m-232 19h232m-172-57v77m58-77v77m58-77v77" stroke="#bac6d2"/>
+    <path d="M315 321h37v18h-37z" fill="#669c91"/>
+    <rect x="658" y="99" width="343" height="291" rx="12" fill="#f3f6f8"/>
+    <text x="706" y="132" font-size="18" font-weight="700">Filament</text>
+    <rect x="675" y="151" width="145" height="35" rx="6" fill="#fff" stroke="#c3ccd5"/>
+    <rect x="836" y="151" width="145" height="35" rx="6" fill="#fff" stroke="#c3ccd5"/>
+    <text x="688" y="173" font-size="15">01  PLA</text><text x="850" y="173" font-size="15">02  PLA</text>
+    <path d="m797 164 5 5 5-5m150 0 5 5 5-5" stroke="#677686" fill="none" stroke-width="2"/>
+    <path d="M675 211h307" stroke="#c3ccd5"/>
+    <text x="706" y="248" font-size="18" font-weight="700">Process</text>
+    <rect x="675" y="267" width="306" height="35" rx="6" fill="#fff" stroke="#c3ccd5"/>
+    <text x="688" y="290" font-size="15">Matching process · PLA Fast</text>
+    <path d="m957 280 5 5 5-5" stroke="#677686" fill="none" stroke-width="2"/>
+    <text x="676" y="338" font-size="15" fill="#435367">Prime tower</text>
+    <rect x="470" y="409" width="168" height="39" rx="6" fill="#186b59"/>
+    <text x="554" y="434" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">Slice plate</text>
+    <text x="985" y="434" font-size="13" fill="#506477" text-anchor="end">Illustration · English UI labels</text>
+  </g>
+  <g fill="#234c76"><circle cx="61" cy="127" r="13"/><circle cx="686" cy="126" r="13"/><circle cx="686" cy="242" r="13"/><circle cx="447" cy="428" r="13"/></g>
+  <g font-family="system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#fff">
+    <text x="61" y="132">1</text><text x="686" y="131">2</text><text x="686" y="247">3</text><text x="447" y="433">4</text>
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="345" viewBox="0 0 1040 345" role="img" aria-labelledby="title desc">
+<title id="title">With-tower test G-code excerpt</title>
+<desc id="desc">Tool selection followed by 10 and 5 millimeters of filament, and a return to the tower at F24000. Other lines omitted.</desc>
+<rect width="1040" height="345" rx="20" fill="#18232e"/>
+<text x="40" y="43" font-size="21" font-weight="700" font-family="system-ui, sans-serif" fill="#fff">With-tower test · exported G-code excerpt</text>
+<text x="40" y="69" font-size="15" font-family="system-ui, sans-serif" fill="#adc0ce">Creality Print 7.3.2 · intermediate lines omitted</text>
+<g font-family="ui-monospace, Menlo, monospace" font-size="18">
+<text x="40" y="111" fill="#adc0ce">; I8_SIDE_PURGE_BEGIN</text>
+<text x="40" y="139" fill="#edf3f7">T2</text>
+<text x="40" y="167" fill="#edf3f7">M83</text>
+<text x="40" y="195" fill="#edf3f7">G1 E10 F194.35</text>
+<text x="40" y="223" fill="#edf3f7">G1 E5 F239.2</text>
+<text x="40" y="251" fill="#adc0ce">; I8_TOWER_RETURN</text>
+<text x="40" y="279" fill="#edf3f7">G1 X127 Y222.5 F24000</text>
+<text x="40" y="307" fill="#adc0ce">; I8_SIDE_PURGE_END</text>
+</g>
+<g font-family="system-ui, sans-serif">
+  <text x="610" y="139" font-size="17" fill="#94e2c7">1 · Select the next channel</text>
+  <text x="610" y="195" font-size="17" fill="#94e2c7">2 · Feed 10 + 5 mm of filament</text>
+  <text x="610" y="279" font-size="17" fill="#94e2c7">3 · Return to the tower</text>
+</g>
+</svg>

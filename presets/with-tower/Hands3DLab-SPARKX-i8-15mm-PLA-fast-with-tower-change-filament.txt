@@ -1,0 +1,152 @@
+; Hands3DLab | SPARKX i8 | 15 mm side purge | PLA Fast
+; Author: Hands3DLab
+; To adjust purge length, find EDIT SIDE_PURGE_MM below.
+; Use the matching Hands3DLab process preset with or without the prime tower.
+; This template is for the Change filament G-code field in Creality Print.
+
+; I8_ACTIVE_BEGIN
+{if previous_extruder >= 0 && next_extruder >= 0 && previous_extruder != next_extruder}
+{if !time_flush_has_toolchange}
+; I8_SIDE_PURGE_BEGIN
+M106 S70
+G1 Z{max(position[2], z_after_toolchange + 0.4)} F600
+SET_VELOCITY_LIMIT ACCEL=10000 ACCEL_TO_DECEL=10000
+; Travel to the side, then enter the wiper at its original speed.
+G0 X266 F24000
+G0 X277 F2400
+M400
+{if filament_type[previous_extruder] == "PLA" && filament_type[next_extruder] == "PLA"}
+G4 P400
+{else}
+G4 P1000
+{endif}
+T[next_extruder]
+M83
+; FLUSH_START
+SET_VELOCITY_LIMIT ACCEL=5000 ACCEL_TO_DECEL=5000
+M106 S70
+{if new_filament_temp >= old_filament_temp - 5 && new_filament_temp <= old_filament_temp + 5}
+M104 S[new_filament_temp]
+{else}
+M109 S[new_filament_temp]
+{endif}
+M400
+{if filament_type[previous_extruder] == "PLA" && filament_type[next_extruder] == "PLA"}
+G1 E10 F{new_filament_e_feedrate * 0.65}
+{else}
+G1 E10 F{new_filament_e_feedrate * 0.3}
+{endif}
+; EDIT SIDE_PURGE_MM: change only 15 below to the total filament length in mm.
+; Keep the total above 10 mm. The first 10 mm are fed slowly.
+G1 E{15 - 10} F{new_filament_e_feedrate * 0.8}
+M400
+{if !enable_prime_tower}
+G1 E-[new_retract_length_toolchange] F1800
+{endif}
+M106 S200
+{if filament_type[previous_extruder] == "PETG"}
+G4 P2500
+{else}
+{if filament_type[previous_extruder] == "PLA" && filament_type[next_extruder] == "PLA"}
+G4 P1200
+{else}
+G4 P2000
+{endif}
+{endif}
+M106 S70
+; FLUSH_END
+; WIPE
+SET_VELOCITY_LIMIT ACCEL=10000 ACCEL_TO_DECEL=10000
+G0 X266 F30000
+G0 X277 F2400
+G0 X266 F30000
+G0 X277 F2400
+G0 X266 F30000
+SET_VELOCITY_LIMIT ACCEL=5000 ACCEL_TO_DECEL=5000
+{if enable_prime_tower}
+; Stop at the side before returning to the slicer-selected tower entry.
+M400
+G4 P150
+; I8_TOWER_RETURN
+G1 X{x_after_toolchange} Y{y_after_toolchange} F24000
+M400
+G1 Z{toolchange_z} F600
+{endif}
+; I8_SIDE_PURGE_END
+{else}
+; I8_TIMED_FLUSH_HANDOFF - the stock timed-flush script owns the T command.
+{endif}
+{endif}
+; I8_ACTIVE_END
+
+; OFFICIAL BACKUP - SPARKX i8 0.4 nozzle, Creality Print 7.3
+; Full-width brackets in this backup keep slicer macros inactive.
+; STOCK | ｛if toolchange_count > 1｝
+; STOCK | ｛if enable_prime_tower｝
+; STOCK | ｛if !time_flush_has_toolchange｝
+; STOCK |  T［next_extruder］
+; STOCK | ｛endif｝
+; STOCK | ｛if new_filament_temp >= old_filament_temp - 5 && new_filament_temp <= old_filament_temp + 5｝
+; STOCK | M104 S［new_filament_temp］
+; STOCK | ｛else｝
+; STOCK | M109 S［new_filament_temp］
+; STOCK | ｛endif｝
+; STOCK | ｛else｝
+; STOCK | ｛if !time_flush_has_toolchange｝
+; STOCK | M106 S70
+; STOCK | ｛if position［1］ - 5 >= 0 && position［1］ + 5 <= 260｝
+; STOCK | G2 Z｛z_after_toolchange + 0.4｝ I0.86 J0.86 P1 F30000
+; STOCK | ｛else｝
+; STOCK | ｛if position［1］ + 5 <= 260｝
+; STOCK | G1 Y｛position［1］ + 5｝ Z｛z_after_toolchange + 0.4｝ F30000
+; STOCK | ｛else｝
+; STOCK | G1 Y｛position［1］ - 5｝ Z｛z_after_toolchange + 0.4｝ F30000
+; STOCK | ｛endif｝
+; STOCK | ｛endif｝
+; STOCK | SET_VELOCITY_LIMIT ACCEL=10000 ACCEL_TO_DECEL=10000
+; STOCK | G0 X266 F30000
+; STOCK | G0 X277 F2400
+; STOCK | M400
+; STOCK | G4 P1000 ; Fan slowdown wait (trial: 1 s)
+; STOCK | T［next_extruder］
+; STOCK | 
+; STOCK | M83
+; STOCK | ; FLUSH_START
+; STOCK | SET_VELOCITY_LIMIT ACCEL=5000 ACCEL_TO_DECEL=5000
+; STOCK | M106 S70
+; STOCK | ; Use the new filament printing temperature
+; STOCK | ｛if new_filament_temp >= old_filament_temp - 5 && new_filament_temp <= old_filament_temp + 5｝
+; STOCK | M104 S［new_filament_temp］
+; STOCK | ｛else｝
+; STOCK | M109 S［new_filament_temp］
+; STOCK | ｛endif｝
+; STOCK | 
+; STOCK | M400
+; STOCK | G1 E10 F｛new_filament_e_feedrate * 0.3｝
+; STOCK | G1 E27 F｛new_filament_e_feedrate * 0.8｝
+; STOCK | 
+; STOCK | M400
+; STOCK | G1 E-［new_retract_length_toolchange］ F1800
+; STOCK | M106 S200
+; STOCK | ｛if filament_type［previous_extruder］ == "PETG"｝
+; STOCK | G4 P2500
+; STOCK | ｛else｝
+; STOCK | G4 P2000
+; STOCK | ｛endif｝
+; STOCK | M106 S70
+; STOCK | 
+; STOCK | ; FLUSH_END
+; STOCK | 
+; STOCK | ; WIPE
+; STOCK | SET_VELOCITY_LIMIT ACCEL=10000 ACCEL_TO_DECEL=10000
+; STOCK | G0 X266 F30000
+; STOCK | G0 X277 F2400
+; STOCK | G0 X266 F30000
+; STOCK | G0 X277 F2400
+; STOCK | G0 X266 F30000
+; STOCK | 
+; STOCK | SET_VELOCITY_LIMIT ACCEL=5000 ACCEL_TO_DECEL=5000
+; STOCK | ｛endif｝
+; STOCK | ｛endif｝
+; STOCK | ｛endif｝
+; END OFFICIAL BACKUP

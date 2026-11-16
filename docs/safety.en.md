@@ -1,0 +1,11 @@
+# Safety and liability notice
+
+[简体中文](safety.zh-CN.md) · [Back to README](../README.md)
+
+This is an independent open-source contribution for experimentation. It is provided **as is, without warranty or a promise of technical support or compensation**. You are responsible for checking compatibility, deciding whether to run it, and monitoring the printer. To the extent permitted by applicable law, the authors and contributors accept no liability for equipment damage, injury, failed prints, wasted material, downtime, or other losses arising from use, modification, or distribution. See the [MIT License notice](../README.md#mit-license). Nothing here excludes liability that applicable law prohibits excluding.
+
+1. **Use the intended hardware.** These profiles are for the SPARKX i8 with a 0.4 mm nozzle and PLA. The custom paths use `X266` and `X277` at the i8 side wiper. Do not apply them to other printers or machines with an obstructed or modified wiper path. Recheck after slicer, firmware, or hardware changes.
+2. **Keep a way back.** Keep your original printer, process, and filament profiles. Save changes as a new user preset. After opening an old 3MF, reselect the intended presets and slice again.
+3. **Check before sending.** Check for unexpected moves, verify the color-to-slot assignment, and confirm the expected side purge blocks in the exported G-code. A preview may not show every custom movement. The `.txt` files are slicer templates. Paste them only into **Change filament G-code** when editing a copy of the correct printer preset.
+4. **Supervise the first test.** Clear the wiper and waste area, run the small coupon first, and observe several changes. Stop the job if there is a collision, unusual noise, missed purge, feed failure, debris carried back to the bed, or a printer error. Keep hands clear of moving parts and hot surfaces. Wait for the printer to stop and cool before checking it.
+5. **Restore and reslice if needed.** Select the original printer, process, and filament profiles again, or reopen a project saved before modification. Slice a fresh file. If only the color or extrusion quality is affected, use the original profiles to establish a baseline before changing one parameter at a time.
