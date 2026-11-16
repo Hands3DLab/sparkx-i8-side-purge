@@ -1,6 +1,6 @@
 # 图文操作指南
 
-![SPARKX i8 多色打印试片及冲刷废料](images/efact.png)
+![SPARKX i8 多色打印试片及冲刷废料](images/efact.jpg)
 
 [English](guide.en.md) · [注意事项与免责](safety.zh-CN.md) · [返回 README](../README.zh-CN.md)
 
@@ -49,7 +49,7 @@
    ![Printer settings 中的 Machine G-code 标签](images/machine-gcode.jpg)
 2. 搜索活动代码中的 `EDIT SIDE_PURGE_MM`，把 `G1 E{15 - 10}` 里的 `15` 改为所需的总送丝长度，单位是毫米。第一段固定送 10 mm，因此总量要大于 10。带塔耗材的塔上最小清理量 **12 mm³** 是独立的体积参数。
 
-   ![侧边冲刷排出的废料示例](images/flush.png)
+   ![侧边冲刷排出的废料示例](images/flush.jpg)
 
 3. 用 **Save as** 另存为新预设，再切片并重复核对。要恢复出厂行为，重新选择原机型、工艺和耗材预设，再生成新文件。
 

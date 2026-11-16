@@ -1,6 +1,6 @@
 # Illustrated setup guide
 
-![SPARKX i8 multicolor test prints and purge waste](images/efact.png)
+![SPARKX i8 multicolor test prints and purge waste](images/efact.jpg)
 
 [简体中文](guide.zh-CN.md) · [Safety and liability](safety.en.md) · [README](../README.md)
 
@@ -49,7 +49,7 @@ For your own model, open it first, then choose **File → Import → Import Conf
    ![Machine G-code tab in Printer settings](images/machine-gcode.jpg)
 2. To adjust the total, find `EDIT SIDE_PURGE_MM` in the active block. In `G1 E{15 - 10}`, change `15` to the total filament length in millimeters. Keep it above `10` because the first step already feeds 10 mm. The with-tower filament uses a separate **12 mm³** minimum purge on the tower. The tower value is a volume.
 
-   ![Example of filament discharged during a side purge](images/flush.png)
+   ![Example of filament discharged during a side purge](images/flush.jpg)
 
 3. **Save as** a new user preset, reslice, and repeat the checks. To restore factory behavior, select the original printer, process, and filament presets and slice again.
 
