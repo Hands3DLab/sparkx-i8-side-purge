@@ -6,7 +6,7 @@ SPARKX i8 的四通道热端主打快速换料。如果切换后冲刷不足，�
 
 适用于 **SPARKX i8、0.4 mm 喷嘴、PLA** 的实验性 Creality Print 预设。随附试片的每次有效换色会在侧刷处送丝 **15 mm**。可选[带擦料塔](presets/with-tower/)或[无擦料塔](presets/no-tower/)。
 
-[English](README.md) · [图文操作指南](docs/guide.zh-CN.md) · [设计原理](docs/guide.zh-CN.md#4-为什么这样做) · [打印前注意事项](docs/safety.zh-CN.md)
+[English](README.md) · [图文操作指南](docs/guide.zh-CN.md) · [设计原理](docs/guide.zh-CN.md#4-为什么这样做) · [打印前注意事项](docs/safety.zh-CN.md) · [Hands3DLab 软件](https://hands3dlab.com/soft)
 
 > **仅作开源分享，按现状提供。** 本项目不提供担保、官方技术支持或赔偿承诺。使用者自行判断并承担风险。在适用法律允许的范围内，作者及贡献者不承担设备损坏、人身伤害、打印失败、耗材浪费或其他损失。上机前请阅读[注意事项与免责说明](docs/safety.zh-CN.md)。
 

@@ -6,7 +6,7 @@ The SPARKX i8's four-channel hotend is designed for fast filament changes. If th
 
 Experimental Creality Print presets for the **SPARKX i8 with a 0.4 mm nozzle and PLA**. Each eligible color change on the supplied test plates purges **15 mm of filament** at the side wiper. Choose [With tower](presets/with-tower/) or [No tower](presets/no-tower/).
 
-[简体中文](README.zh-CN.md) · [Illustrated guide](docs/guide.en.md) · [Design rationale](docs/guide.en.md#4-why-it-works-this-way) · [Before printing](docs/safety.en.md)
+[简体中文](README.zh-CN.md) · [Illustrated guide](docs/guide.en.md) · [Design rationale](docs/guide.en.md#4-why-it-works-this-way) · [Before printing](docs/safety.en.md) · [Hands3DLab Software](https://hands3dlab.com/soft)
 
 > **Open-source release, provided as is.** No warranty, official support, or compensation is offered. Use is at your own risk. To the extent permitted by applicable law, the authors and contributors are not liable for equipment damage, injury, failed prints, wasted material, or other loss. Read the [safety and liability notice](docs/safety.en.md) before printing.
 
