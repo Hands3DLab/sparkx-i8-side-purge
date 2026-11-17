@@ -4,13 +4,33 @@
 
 [English](guide.en.md) · [注意事项与免责](safety.zh-CN.md) · [返回 README](../README.zh-CN.md)
 
-图 1 是打开无塔试片后的 Creality Print 英文版 **Prepare** 页面。不同系统和版本的布局可能略有变化。
+> [!WARNING]
+> **时间代价。** 每次触发侧边冲刷的换色约多花 **5 秒**。换色次数多时，额外时间会累积。如果对打印时长敏感，请勿导入这套预设或启用侧刷模板。
 
-## 1. 打开试片或导入配置
+## 1. 安装
 
-最快的方法是把[带塔](../presets/with-tower/)或[无塔](../presets/no-tower/)文件夹里的 `.3mf` **作为项目打开**。试片有六段色带，顶部开放，便于观察内部填充。切片前核对载入的预设。
+适用配置为 **SPARKX i8、0.4 mm 喷嘴、PLA**。随附试片已用 Creality Print 7.3.2 切片检查。[Creality Print 7.3.2](https://github.com/CrealityOfficial/CrealityPrint/releases/tag/v7.3.2)
 
-使用自己的模型时，先打开模型，再选 **File → Import → Import Configs**。导入同一组的 `*-machine.json` 和 `*-process.json`，带塔组还要导入 `*-filament.json`。导入后还需要到 **Prepare** 选择对应预设，尤其是打开了带旧预设的 3MF 时。
+### 方式 A：手动替换（推荐）
+
+从当前官方机型预设另存副本，只替换「换料 G-code」字段，保留当前版本的运动、温控等机器设置。升级后可从新版官方预设重新建副本，再核对模板和切片结果。
+
+1. 在 **Prepare** 选择官方 **SPARKX i8 0.4 mm**，点击机型旁的铅笔，进入 **Machine G-code → Change filament G-code**。先备份原字段内容。
+2. 按 **Prime tower** 开关选模板：[带擦料塔 G-code](../gcode/sparkx-i8-with-tower-change-filament.txt) · [无擦料塔 G-code](../gcode/sparkx-i8-no-tower-change-filament.txt)。复制文件全文，替换字段，并用 **Save as** 保存为新的用户机型预设。
+
+   <img src="images/machine-gcode.png" alt="标出的换料 G-code 字段和设为 0 秒的 Time flush interval" width="768">
+
+   **换料 G-code 设置。** 上方红框是粘贴位置。下方显示随附预设的 **Time flush interval 为 0 秒**。若定时冲刷接管换料，此模板会跳过侧刷。
+
+**推荐设置。** 要复现随附试片的侧刷行为，在机型副本里将 **Time flush interval** 设为 **0 秒**，并让 **Prime tower** 开关与所选模板一致。带塔试片的随附耗材预设使用 **额外预冲刷 0 mm³**、**塔上最小冲刷 12 mm³**。手动替换时可先保留自己的耗材配置，再按切片结果决定是否调整塔上的冲刷量。
+
+### 方式 B：一键导入
+
+快速试用时，把[带塔](../presets/with-tower/)或[无塔](../presets/no-tower/)文件夹内的 `.3mf` 作为项目打开，即可载入随附预设。用于自己的模型时，通过 **File → Import → Import Configs** 一次选中同组的机型和工艺 JSON，带塔组同时选中耗材 JSON。回到 **Prepare** 选用导入的预设，核对擦料塔开关和料槽。
+
+<img src="images/import-configs-menu.png" alt="Creality Print 的 File → Import 菜单，Import Configs 已高亮" width="768">
+
+**导入预设入口。** 在 **File → Import** 菜单中选择 **Import Configs…**。
 
 ![Import Configs 中选中无塔机型和工艺 JSON](images/import-configs.jpg)
 
@@ -44,9 +64,7 @@
 
 ## 3. 调整侧边冲刷或恢复原配置
 
-1. 在 **Prepare** 点击机型旁的铅笔，进入 **Machine gcode → Change filament G-code**。对应的 `*-change-filament.txt` 可以整段粘贴到这个字段，末尾的 `STOCK` 注释区用于对照。
-
-   ![标出的换料 G-code 字段和设为 0 秒的 Time flush interval](images/machine-gcode.png)
+1. 在 **Prepare** 点击副本机型旁的铅笔，进入 **Machine G-code → Change filament G-code**。
 2. 搜索活动代码中的 `EDIT SIDE_PURGE_MM`，把 `G1 E{15 - 10}` 里的 `15` 改为所需的总送丝长度，单位是毫米。第一段固定送 10 mm，因此总量要大于 10。带塔耗材的塔上最小清理量 **12 mm³** 是独立的体积参数。
 
    ![侧边冲刷排出的废料示例](images/flush.jpg)

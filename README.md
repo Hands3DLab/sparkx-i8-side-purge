@@ -32,6 +32,8 @@ Save a copy of the current official printer preset and replace the **Change fila
 
    **Figure 3. Filament-change G-code settings.** Paste into the upper highlighted field. The lower box shows the supplied preset’s **Time flush interval of 0 seconds**. The template skips the side flush when timed flushing handles the tool change.
 
+**Recommended settings.** To reproduce the supplied test setup, set **Time flush interval** to **0 seconds** in the printer preset copy and match **Prime tower** to the template you chose. The bundled with-tower filament preset uses **0 mm³ extra pre-flush** and a **12 mm³ minimum tower flush**. With manual replacement, start with your existing filament preset and adjust tower flushing only after checking the slice.
+
 ### Option B · One-click import
 
 For a quick test, open the `.3mf` in the [with-tower](presets/with-tower/) or [no-tower](presets/no-tower/) folder as a project to load the bundled settings. For your own model, use **File → Import → Import Configs** to select the matching printer and process JSON files together. Include the filament JSON for the with-tower setup. In **Prepare**, select the imported presets and check the prime tower and filament slots.

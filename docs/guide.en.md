@@ -4,13 +4,33 @@
 
 [简体中文](guide.zh-CN.md) · [Safety and liability](safety.en.md) · [README](../README.md)
 
-Figure 1 shows the English **Prepare** page with the no-tower test project open. Layout may vary by platform and version.
+> [!WARNING]
+> **Time cost.** Side flushing adds about **5 seconds per color change** when it runs. The extra time adds up on prints with frequent changes. If print time is a priority, skip both the preset import and the side-flush template.
 
-## 1. Open a test project or import presets
+## 1. Install
 
-For the quickest check, open the `.3mf` from the [with-tower](../presets/with-tower/) or [no-tower](../presets/no-tower/) folder as a **project**. The included coupon has six color bands and an open top so you can inspect the infill. Check the loaded presets before slicing.
+For the **SPARKX i8 with a 0.4 mm nozzle and PLA**. The supplied test projects were sliced in Creality Print 7.3.2. [Creality Print 7.3.2](https://github.com/CrealityOfficial/CrealityPrint/releases/tag/v7.3.2)
 
-For your own model, open it first, then choose **File → Import → Import Configs**. Select both the `*-machine.json` and `*-process.json` from the same folder. With tower also uses `*-filament.json`. Importing adds presets to the lists. Select them on the **Prepare** page, especially after opening a project with older embedded settings.
+### Option A · Manual replacement (recommended)
+
+Save a copy of the current official printer preset and replace the **Change filament G-code** field. This preserves the current motion, temperature, and other machine defaults. After a slicer upgrade, start with a fresh copy of the updated official preset and verify the template with a new slice.
+
+1. In **Prepare**, select the official **SPARKX i8 0.4 mm** preset. Click the pencil next to it and open **Machine G-code → Change filament G-code**. Back up the existing field.
+2. Choose the template that matches **Prime tower**: [With-tower G-code](../gcode/sparkx-i8-with-tower-change-filament.txt) · [No-tower G-code](../gcode/sparkx-i8-no-tower-change-filament.txt). Copy the whole file into the field, then use **Save as** to create a user printer preset.
+
+   <img src="images/machine-gcode.png" alt="Highlighted Change filament G-code field and Time flush interval set to 0 seconds" width="768">
+
+   **Filament-change G-code settings.** Paste into the upper highlighted field. The lower box shows the supplied preset’s **Time flush interval of 0 seconds**. The template skips the side flush when timed flushing handles the tool change.
+
+**Recommended settings.** To reproduce the supplied test setup, set **Time flush interval** to **0 seconds** in the printer preset copy and match **Prime tower** to the template you chose. The bundled with-tower filament preset uses **0 mm³ extra pre-flush** and a **12 mm³ minimum tower flush**. With manual replacement, start with your existing filament preset and adjust tower flushing only after checking the slice.
+
+### Option B · One-click import
+
+For a quick test, open the `.3mf` in the [with-tower](../presets/with-tower/) or [no-tower](../presets/no-tower/) folder as a project to load the bundled settings. For your own model, use **File → Import → Import Configs** to select the matching printer and process JSON files together. Include the filament JSON for the with-tower setup. In **Prepare**, select the imported presets and check the prime tower and filament slots.
+
+<img src="images/import-configs-menu.png" alt="Creality Print File → Import menu with Import Configs highlighted" width="768">
+
+**Import presets.** Choose **Import Configs…** from **File → Import**.
 
 ![No-tower printer and process JSON files selected in Import Configs](images/import-configs.jpg)
 
@@ -44,9 +64,7 @@ For your own model, open it first, then choose **File → Import → Import Conf
 
 ## 3. Adjust the side flush or restore the defaults
 
-1. In **Prepare**, click the pencil beside the printer preset to edit it. Open **Machine gcode → Change filament G-code**. You can paste the matching `*-change-filament.txt` here. Its commented `STOCK` section is a reference copy.
-
-   ![Highlighted Change filament G-code field and Time flush interval set to 0 seconds](images/machine-gcode.png)
+1. In **Prepare**, click the pencil beside the copied printer preset and open **Machine G-code → Change filament G-code**.
 2. To adjust the total, find `EDIT SIDE_PURGE_MM` in the active block. In `G1 E{15 - 10}`, change `15` to the total filament length in millimeters. Keep it above `10` because the first step already feeds 10 mm. The with-tower filament uses a separate **12 mm³** minimum flush on the tower. The tower value is a volume.
 
    ![Example of filament discharged during a side flush](images/flush.jpg)
