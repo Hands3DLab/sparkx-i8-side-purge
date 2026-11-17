@@ -48,6 +48,8 @@ Reslice after either setup. Check the color changes and prime tower in **Preview
 
 [With-tower test project and presets](presets/with-tower/) · [No-tower test project and presets](presets/no-tower/) · [Illustrated steps and flush adjustments](docs/guide.en.md)
 
+If flush waste is carried back to the print, try the [experimental PLA wipe templates](gcode/experimental/README.md), which add pressure relief, longer cooling, and an extra wipe. They increase change time and await physical print validation.
+
 ## 3. Risks and precautions
 
 - **Unify assignments before slicing when regions use the same physical filament.** The template detects changes using logical filament IDs at slice time. Mapping multiple logical filaments to one physical slot only when sending the print can still leave side-flush moves in the generated G-code. Assign those regions to the same logical filament in **Prepare**, then reslice.
