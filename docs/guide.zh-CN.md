@@ -1,6 +1,6 @@
 # 图文操作指南
 
-![SPARKX i8 多色打印试片及冲刷废料](images/efact.jpg)
+![SPARKX i8 多色打印试片及冲刷废料](images/result-effect.jpg)
 
 [English](guide.en.md) · [注意事项与免责](safety.zh-CN.md) · [返回 README](../README.zh-CN.md)
 
@@ -46,7 +46,7 @@
 
 1. 在 **Prepare** 点击机型旁的铅笔，进入 **Machine gcode → Change filament G-code**。对应的 `*-change-filament.txt` 可以整段粘贴到这个字段，末尾的 `STOCK` 注释区用于对照。
 
-   ![Printer settings 中的 Machine G-code 标签](images/machine-gcode.jpg)
+   ![标出的换料 G-code 字段和设为 0 秒的 Time flush interval](images/machine-gcode.png)
 2. 搜索活动代码中的 `EDIT SIDE_PURGE_MM`，把 `G1 E{15 - 10}` 里的 `15` 改为所需的总送丝长度，单位是毫米。第一段固定送 10 mm，因此总量要大于 10。带塔耗材的塔上最小清理量 **12 mm³** 是独立的体积参数。
 
    ![侧边冲刷排出的废料示例](images/flush.jpg)

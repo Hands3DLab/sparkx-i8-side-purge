@@ -2,13 +2,13 @@
 
 [English](README.md) · [Hands3DLab 软件](https://hands3dlab.com/soft)
 
-## 1. 为什么要侧边冲刷
+## 1. 为什么会串色，侧边冲刷有什么效果
 
-SPARKX i8 换料后，热端可能还残留上一种颜色。恢复打印太早，容易在试片上留下串色或出料不均。这个模板在喷嘴回到模型或擦料塔之前，先到侧刷处送丝 **15 mm（10 + 5 mm）**，让换色初段的混色料排到模型之外。
+在 **Creality Print 7.3.2** 和 SPARKX i8 现有的四通道快速换料方案下，换料后热端仍可能残留上一种颜色。如果恢复打印前的冲刷量不足，尤其是深色换浅色时，残色可能混入新料并出现在模型上。这个模板在喷嘴回到模型或擦料塔之前，先到侧刷处送丝 **15 mm（10 + 5 mm）**，减少换色初段的串色。
 
-<img src="docs/images/efact.jpg" alt="两块黄粉双色试片并排放置，上方各有一段冲刷废料" width="768">
+<img src="docs/images/result-effect.jpg" alt="默认换料与侧边冲刷试片并排对照，下方显示各自废料" width="768">
 
-**图 1　双色试片。** 对比两块试片的顶层网格，左侧试片可见更多粉色残留和不规则线条，右侧的黄色网格更连续。两块试片上方是各自的冲刷废料。
+**图 1　双色试片。** 左侧是默认换料，黄色顶层网格可见粉色残留和不规则线条。右侧是替换换料 G-code 后的试片，黄色网格更连续。下方是各自排出的废料。
 
 <img src="docs/images/flush.jpg" alt="手持一小段黄橙色侧边冲刷废料" width="768">
 
@@ -22,6 +22,11 @@ SPARKX i8 换料后，热端可能还残留上一种颜色。恢复打印太早�
 
 1. 在 **Prepare** 选择官方 **SPARKX i8 0.4 mm**，点击机型旁的铅笔，进入 **Machine G-code → Change filament G-code**。先备份原字段内容。
 2. 按 **Prime tower** 开关选模板：[带擦料塔 G-code](gcode/sparkx-i8-with-tower-change-filament.txt) · [无擦料塔 G-code](gcode/sparkx-i8-no-tower-change-filament.txt)。复制文件全文，替换字段，并用 **Save as** 保存为新的用户机型预设。
+
+   <img src="docs/images/machine-gcode.png" alt="标出的换料 G-code 字段和设为 0 秒的 Time flush interval" width="768">
+
+   **图 3　换料 G-code 设置。** 上方红框是粘贴位置。下方显示随附预设的 **Time flush interval 为 0 秒**。若定时冲刷接管换料，此模板会跳过侧刷。
+
 3. 用新预设切片，在 **Preview** 核对换色及擦料塔，再通过 **Export G-code** 检查实际换色段是否含有单独一行 `; I8_SIDE_PURGE_BEGIN`，以及之后的 `G1 E10` 和 `G1 E5`。随附试片应有五段侧刷代码。无塔模式取决于切片器是否调用换料模板。
 
 [带塔试片和预设](presets/with-tower/) · [无塔试片和预设](presets/no-tower/) · [图文操作与冲刷量调整](docs/guide.zh-CN.md)

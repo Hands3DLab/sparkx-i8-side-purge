@@ -2,17 +2,17 @@
 
 [简体中文](README.zh-CN.md) · [Hands3DLab Software](https://hands3dlab.com/soft)
 
-## 1. Why purge at the side
+## 1. Why color bleed can occur and how side flushing helps
 
-After a filament change, some of the previous color can remain in the hotend. Resuming too early can leave color bleed or uneven extrusion. This template feeds **15 mm of filament (10 + 5 mm)** at the side wiper before the nozzle returns to the model or prime tower.
+With **Creality Print 7.3.2** and the SPARKX i8’s current four-channel filament-change design, some of the previous color can remain in the hotend after a switch. If too little filament is flushed before printing resumes, the old color can show on the model, especially when switching from dark to light. To reduce color bleed, this template feeds **15 mm of filament (10 + 5 mm)** at the side wiper before the nozzle returns to the model or prime tower.
 
-<img src="docs/images/efact.jpg" alt="Two yellow and pink test prints side by side, with purge waste above each" width="768">
+<img src="docs/images/result-effect.jpg" alt="Default and side-flush test prints side by side, with the corresponding waste below" width="768">
 
-**Figure 1. Two-color test prints.** The left coupon shows more pink in the top grid and more irregular lines. The yellow grid on the right is more continuous. The pieces above the coupons are purge waste.
+**Figure 1. Two-color test prints.** The default filament change on the left leaves more pink and irregular lines in the yellow top grid. The coupon on the right uses the replacement G-code and shows a more continuous yellow grid. The corresponding waste is shown below each coupon.
 
-<img src="docs/images/flush.jpg" alt="A small piece of yellow and orange purge waste held in front of the printer" width="768">
+<img src="docs/images/flush.jpg" alt="A small piece of yellow and orange flush waste held in front of the printer" width="768">
 
-**Figure 2. Side purge waste.** The wiper removes the filament extruded at the start of the color transition. The template’s **15 mm** refers to filament feed length. The selected process and filament presets still control the purge volume at the prime tower.
+**Figure 2. Side flush waste.** The wiper removes the filament extruded at the start of the color transition. The template’s **15 mm** refers to filament feed length. The selected process and filament presets still control the flush volume at the prime tower.
 
 ## 2. Install and verify
 
@@ -22,9 +22,14 @@ For the **SPARKX i8 with a 0.4 mm nozzle and PLA**. The supplied test projects w
 
 1. In **Prepare**, select the official **SPARKX i8 0.4 mm** preset. Click the pencil next to it and open **Machine G-code → Change filament G-code**. Back up the existing field.
 2. Choose the template that matches **Prime tower**: [With-tower G-code](gcode/sparkx-i8-with-tower-change-filament.txt) · [No-tower G-code](gcode/sparkx-i8-no-tower-change-filament.txt). Copy the whole file into the field, then use **Save as** to create a user printer preset.
-3. Slice with the new preset. Check the color changes and prime tower in **Preview**. Use **Export G-code** and check the actual tool changes for a standalone `; I8_SIDE_PURGE_BEGIN` line followed by `G1 E10` and `G1 E5`. The supplied coupons should show five side purge blocks. Without a tower, side purging depends on the slicer invoking the filament-change template.
 
-[With-tower test project and presets](presets/with-tower/) · [No-tower test project and presets](presets/no-tower/) · [Illustrated steps and purge adjustments](docs/guide.en.md)
+   <img src="docs/images/machine-gcode.png" alt="Highlighted Change filament G-code field and Time flush interval set to 0 seconds" width="768">
+
+   **Figure 3. Filament-change G-code settings.** Paste into the upper highlighted field. The lower box shows the supplied preset’s **Time flush interval of 0 seconds**. The template skips the side flush when timed flushing handles the tool change.
+
+3. Slice with the new preset. Check the color changes and prime tower in **Preview**. Use **Export G-code** and check the actual tool changes for a standalone `; I8_SIDE_PURGE_BEGIN` line followed by `G1 E10` and `G1 E5`. The supplied coupons should show five side flush blocks. Without a tower, side flushing depends on the slicer invoking the filament-change template.
+
+[With-tower test project and presets](presets/with-tower/) · [No-tower test project and presets](presets/no-tower/) · [Illustrated steps and flush adjustments](docs/guide.en.md)
 
 ## 3. Risks and precautions
 
