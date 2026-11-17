@@ -30,9 +30,9 @@ Save a copy of the current official printer preset and replace the **Change fila
 
    <img src="docs/images/machine-gcode.png" alt="Highlighted Change filament G-code field and Time flush interval set to 0 seconds" width="768">
 
-   **Figure 3. Filament-change G-code settings.** Paste into the upper highlighted field. The lower box shows the supplied preset’s **Time flush interval of 0 seconds**. The template skips the side flush when timed flushing handles the tool change.
+   **Figure 3. Filament-change G-code settings.** Paste into the upper highlighted field. The lower box shows the supplied preset’s **Time flush interval of 0 seconds**. Also clear the **Time flush G-code** field below it to prevent independent timed flushing during same-channel printing.
 
-**Recommended settings.** To reproduce the supplied test setup, set **Time flush interval** to **0 seconds** in the printer preset copy and match **Prime tower** to the template you chose. The bundled with-tower filament preset uses **0 mm³ extra pre-flush** and a **12 mm³ minimum tower flush**. With manual replacement, start with your existing filament preset and adjust tower flushing only after checking the slice.
+**Recommended settings.** To reproduce the supplied test setup, set **Time flush interval** to **0 seconds** and clear the **Time flush G-code** field in the printer preset copy to disable the independent timed-flush path. Match **Prime tower** to the template you chose. The bundled with-tower filament preset uses **0 mm³ extra pre-flush** and a **12 mm³ minimum tower flush**. With manual replacement, start with your existing filament preset and adjust tower flushing only after checking the slice.
 
 ### Option B · One-click import
 
