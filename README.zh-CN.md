@@ -14,11 +14,15 @@
 
 **图 2　侧刷废料近照。** 换色初段挤出的耗材在侧刷处被刮下。模板里的 **15 mm** 指送入热端的耗材长度。擦料塔的冲刷体积由当前工艺和耗材预设控制。
 
+**时间代价。** 每次触发侧边冲刷的换色约多花 **5 秒**。换色次数多时，额外时间会累积。如果对打印时长敏感，请勿导入这套预设或启用侧刷模板。
+
 ## 2. 安装与验证
 
 适用配置为 **SPARKX i8、0.4 mm 喷嘴、PLA**。随附试片已用 Creality Print 7.3.2 切片检查。[Creality Print 7.3.2](https://github.com/CrealityOfficial/CrealityPrint/releases/tag/v7.3.2)
 
-**强烈建议直接粘贴 G-code，只替换「换料 G-code」字段。** 从当前官方机型预设另存副本，可保留该版本的运动、温控和其他机器默认值。升级后，从新版官方预设重新建副本，再核对模板和切片结果，可减少旧预设覆盖新版设置的风险。
+### 方式 A：手动替换（推荐）
+
+从当前官方机型预设另存副本，只替换「换料 G-code」字段，保留当前版本的运动、温控等机器设置。升级后可从新版官方预设重新建副本，再核对模板和切片结果。
 
 1. 在 **Prepare** 选择官方 **SPARKX i8 0.4 mm**，点击机型旁的铅笔，进入 **Machine G-code → Change filament G-code**。先备份原字段内容。
 2. 按 **Prime tower** 开关选模板：[带擦料塔 G-code](gcode/sparkx-i8-with-tower-change-filament.txt) · [无擦料塔 G-code](gcode/sparkx-i8-no-tower-change-filament.txt)。复制文件全文，替换字段，并用 **Save as** 保存为新的用户机型预设。
@@ -27,7 +31,13 @@
 
    **图 3　换料 G-code 设置。** 上方红框是粘贴位置。下方显示随附预设的 **Time flush interval 为 0 秒**。若定时冲刷接管换料，此模板会跳过侧刷。
 
-3. 用新预设切片，在 **Preview** 核对换色及擦料塔，再通过 **Export G-code** 检查实际换色段是否含有单独一行 `; I8_SIDE_PURGE_BEGIN`，以及之后的 `G1 E10` 和 `G1 E5`。随附试片应有五段侧刷代码。无塔模式取决于切片器是否调用换料模板。
+### 方式 B：一键导入
+
+快速试用时，把[带塔](presets/with-tower/)或[无塔](presets/no-tower/)文件夹内的 `.3mf` 作为项目打开，即可载入随附预设。用于自己的模型时，通过 **File → Import → Import Configs** 一次选中同组的机型和工艺 JSON，带塔组同时选中耗材 JSON。回到 **Prepare** 选用导入的预设，核对擦料塔开关和料槽。
+
+### 切片验证
+
+两种安装方式都要重新切片。在 **Preview** 核对换色及擦料塔，再通过 **Export G-code** 检查实际换色段是否含有单独一行 `; I8_SIDE_PURGE_BEGIN`，以及之后的 `G1 E10` 和 `G1 E5`。随附试片应有五段侧刷代码。无塔模式取决于切片器是否调用换料模板。
 
 [带塔试片和预设](presets/with-tower/) · [无塔试片和预设](presets/no-tower/) · [图文操作与冲刷量调整](docs/guide.zh-CN.md)
 

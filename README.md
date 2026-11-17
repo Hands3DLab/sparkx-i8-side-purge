@@ -14,11 +14,15 @@ With **Creality Print 7.3.2** and the SPARKX i8’s current four-channel filamen
 
 **Figure 2. Side flush waste.** The wiper removes the filament extruded at the start of the color transition. The template’s **15 mm** refers to filament feed length. The selected process and filament presets still control the flush volume at the prime tower.
 
+**Time cost.** Side flushing adds about **5 seconds per color change** when it runs. The extra time adds up on prints with frequent changes. If print time is a priority, skip both the preset import and the side-flush template.
+
 ## 2. Install and verify
 
 For the **SPARKX i8 with a 0.4 mm nozzle and PLA**. The supplied test projects were sliced in Creality Print 7.3.2. [Creality Print 7.3.2](https://github.com/CrealityOfficial/CrealityPrint/releases/tag/v7.3.2)
 
-**Strongly recommended: paste the template directly into the Change filament G-code field.** Save a copy of the current official printer preset and change this one field to preserve the current motion, temperature, and other machine defaults. After a slicer upgrade, start with a fresh copy of the updated official preset and verify the template with a new slice.
+### Option A · Manual replacement (recommended)
+
+Save a copy of the current official printer preset and replace the **Change filament G-code** field. This preserves the current motion, temperature, and other machine defaults. After a slicer upgrade, start with a fresh copy of the updated official preset and verify the template with a new slice.
 
 1. In **Prepare**, select the official **SPARKX i8 0.4 mm** preset. Click the pencil next to it and open **Machine G-code → Change filament G-code**. Back up the existing field.
 2. Choose the template that matches **Prime tower**: [With-tower G-code](gcode/sparkx-i8-with-tower-change-filament.txt) · [No-tower G-code](gcode/sparkx-i8-no-tower-change-filament.txt). Copy the whole file into the field, then use **Save as** to create a user printer preset.
@@ -27,7 +31,13 @@ For the **SPARKX i8 with a 0.4 mm nozzle and PLA**. The supplied test projects w
 
    **Figure 3. Filament-change G-code settings.** Paste into the upper highlighted field. The lower box shows the supplied preset’s **Time flush interval of 0 seconds**. The template skips the side flush when timed flushing handles the tool change.
 
-3. Slice with the new preset. Check the color changes and prime tower in **Preview**. Use **Export G-code** and check the actual tool changes for a standalone `; I8_SIDE_PURGE_BEGIN` line followed by `G1 E10` and `G1 E5`. The supplied coupons should show five side flush blocks. Without a tower, side flushing depends on the slicer invoking the filament-change template.
+### Option B · One-click import
+
+For a quick test, open the `.3mf` in the [with-tower](presets/with-tower/) or [no-tower](presets/no-tower/) folder as a project to load the bundled settings. For your own model, use **File → Import → Import Configs** to select the matching printer and process JSON files together. Include the filament JSON for the with-tower setup. In **Prepare**, select the imported presets and check the prime tower and filament slots.
+
+### Verify the slice
+
+Reslice after either setup. Check the color changes and prime tower in **Preview**. Use **Export G-code** and check the actual tool changes for a standalone `; I8_SIDE_PURGE_BEGIN` line followed by `G1 E10` and `G1 E5`. The supplied coupons should show five side flush blocks. Without a tower, side flushing depends on the slicer invoking the filament-change template.
 
 [With-tower test project and presets](presets/with-tower/) · [No-tower test project and presets](presets/no-tower/) · [Illustrated steps and flush adjustments](docs/guide.en.md)
 
