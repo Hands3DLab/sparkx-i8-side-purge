@@ -35,6 +35,10 @@
 
 快速试用时，把[带塔](presets/with-tower/)或[无塔](presets/no-tower/)文件夹内的 `.3mf` 作为项目打开，即可载入随附预设。用于自己的模型时，通过 **File → Import → Import Configs** 一次选中同组的机型和工艺 JSON，带塔组同时选中耗材 JSON。回到 **Prepare** 选用导入的预设，核对擦料塔开关和料槽。
 
+<img src="docs/images/import-configs-menu.png" alt="Creality Print 的 File → Import 菜单，Import Configs 已高亮" width="768">
+
+**图 4　导入预设入口。** 在 **File → Import** 菜单中选择 **Import Configs…**。
+
 ### 切片验证
 
 两种安装方式都要重新切片。在 **Preview** 核对换色及擦料塔，再通过 **Export G-code** 检查实际换色段是否含有单独一行 `; I8_SIDE_PURGE_BEGIN`，以及之后的 `G1 E10` 和 `G1 E5`。随附试片应有五段侧刷代码。无塔模式取决于切片器是否调用换料模板。

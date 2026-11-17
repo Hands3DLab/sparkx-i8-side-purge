@@ -35,6 +35,10 @@ Save a copy of the current official printer preset and replace the **Change fila
 
 For a quick test, open the `.3mf` in the [with-tower](presets/with-tower/) or [no-tower](presets/no-tower/) folder as a project to load the bundled settings. For your own model, use **File → Import → Import Configs** to select the matching printer and process JSON files together. Include the filament JSON for the with-tower setup. In **Prepare**, select the imported presets and check the prime tower and filament slots.
 
+<img src="docs/images/import-configs-menu.png" alt="Creality Print File → Import menu with Import Configs highlighted" width="768">
+
+**Figure 4. Import presets.** Choose **Import Configs…** from **File → Import**.
+
 ### Verify the slice
 
 Reslice after either setup. Check the color changes and prime tower in **Preview**. Use **Export G-code** and check the actual tool changes for a standalone `; I8_SIDE_PURGE_BEGIN` line followed by `G1 E10` and `G1 E5`. The supplied coupons should show five side flush blocks. Without a tower, side flushing depends on the slicer invoking the filament-change template.
