@@ -50,6 +50,7 @@ Reslice after either setup. Check the color changes and prime tower in **Preview
 
 ## 3. Risks and precautions
 
+- **Unify assignments before slicing when regions use the same physical filament.** The template detects changes using logical filament IDs at slice time. Mapping multiple logical filaments to one physical slot only when sending the print can still leave side-flush moves in the generated G-code. Assign those regions to the same logical filament in **Prepare**, then reslice.
 - **Check the wiper path and filament-slot mapping before printing.** The custom moves reach `X266` and `X277`. Preview may omit some of these moves. Reslice and inspect the exported code after a firmware or slicer upgrade.
 - **Supervise the first small test.** Clear the side wiper and waste area. Stop if you notice a collision, unusual noise, or a failed filament change. To restore default behavior, select the original presets and slice again.
 - The project is provided as is. Read the [full safety and liability notice](docs/safety.en.md) before printing.
