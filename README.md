@@ -6,6 +6,9 @@
 
 With **Creality Print 7.3.2** and the SPARKX i8’s current four-channel filament-change design, some of the previous color can remain in the hotend after a switch. If too little filament is flushed before printing resumes, the old color can show on the model, especially when switching from dark to light. To reduce color bleed, this template feeds **15 mm of filament (10 + 5 mm)** at the side wiper before the nozzle returns to the model or prime tower.
 
+> [!WARNING]
+> **Time cost.** Side flushing adds about **5 seconds per color change** when it runs. The extra time adds up on prints with frequent changes. If print time is a priority, skip both the preset import and the side-flush template.
+
 <img src="docs/images/result-effect.jpg" alt="Default and side-flush test prints side by side, with the corresponding waste below" width="768">
 
 **Figure 1. Two-color test prints.** The default filament change on the left leaves more pink and irregular lines in the yellow top grid. The coupon on the right uses the replacement G-code and shows a more continuous yellow grid. The corresponding waste is shown below each coupon.
@@ -13,8 +16,6 @@ With **Creality Print 7.3.2** and the SPARKX i8’s current four-channel filamen
 <img src="docs/images/flush.jpg" alt="A small piece of yellow and orange flush waste held in front of the printer" width="768">
 
 **Figure 2. Side flush waste.** The wiper removes the filament extruded at the start of the color transition. The template’s **15 mm** refers to filament feed length. The selected process and filament presets still control the flush volume at the prime tower.
-
-**Time cost.** Side flushing adds about **5 seconds per color change** when it runs. The extra time adds up on prints with frequent changes. If print time is a priority, skip both the preset import and the side-flush template.
 
 ## 2. Install and verify
 
