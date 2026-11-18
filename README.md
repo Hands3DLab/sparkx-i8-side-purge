@@ -2,12 +2,14 @@
 
 [简体中文](README.zh-CN.md) · [Hands3DLab Software](https://hands3dlab.com/soft)
 
+**Release: v7.3.2-r2 · Creality Print 7.3.2**
+
 ## 1. Why color bleed can occur and how side flushing helps
 
 With **Creality Print 7.3.2** and the SPARKX i8’s current four-channel filament-change design, some of the previous color can remain in the hotend after a switch. If too little filament is flushed before printing resumes, the old color can show on the model, especially when switching from dark to light. To reduce color bleed, this template feeds **15 mm of filament (10 + 5 mm)** at the side wiper before the nozzle returns to the model or prime tower.
 
 > [!WARNING]
-> **Time cost.** Side flushing adds about **5 seconds per color change** when it runs. The extra time adds up on prints with frequent changes. If print time is a priority, skip both the preset import and the side-flush template.
+> **Time cost.** Side flushing adds roughly **6 seconds per color change** when it runs, including about **1 extra second** for the improved wipe compared with the previous template. These are estimates; actual time varies. The extra time adds up on prints with frequent changes. If print time is a priority, skip both the preset import and the side-flush template.
 
 <img src="docs/images/result-effect.jpg" alt="Default and side-flush test prints side by side, with the corresponding waste below" width="768">
 
@@ -48,7 +50,7 @@ Reslice after either setup. Check the color changes and prime tower in **Preview
 
 [With-tower test project and presets](presets/with-tower/) · [No-tower test project and presets](presets/no-tower/) · [Illustrated steps and flush adjustments](docs/guide.en.md)
 
-If flush waste is carried back to the print, try the [experimental PLA wipe templates](gcode/experimental/README.md), which add pressure relief, longer cooling, and an extra wipe. They increase change time and await physical print validation.
+**v7.3.2-r2** includes the improved wipe in both templates and all bundled presets: pressure relief after flushing, 1.8 seconds of PLA cooling, three wipes, and a slower final departure. The with-tower template restores the retracted filament at the tower; the no-tower template leaves recovery to the slicer. The maintainer reports reduced waste pickup in a print test; results vary with filament and wiper condition.
 
 ## 3. Risks and precautions
 

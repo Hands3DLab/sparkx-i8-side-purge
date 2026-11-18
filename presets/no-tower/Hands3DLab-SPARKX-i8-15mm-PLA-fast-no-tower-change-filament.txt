@@ -1,10 +1,8 @@
-; Hands3DLab | SPARKX i8 | 15 mm side purge | PLA Fast
-; Author: Hands3DLab
-; To adjust purge length, find EDIT SIDE_PURGE_MM below.
-; Use the matching Hands3DLab process preset with or without the prime tower.
-; This template is for the Change filament G-code field in Creality Print.
+; Hands3DLab | SPARKX i8 0.4 mm | PLA | 15 mm side purge | no-tower
+; v7.3.2-r2 | Creality Print 7.3.2: paste into Change filament G-code.
+; Cool for 1.8 s, wipe three times, retract during departure.
+; Uses the preset toolchange retract length; tower mode restores it at the tower.
 
-; I8_ACTIVE_BEGIN
 {if previous_extruder >= 0 && next_extruder >= 0 && previous_extruder != next_extruder}
 {if !time_flush_has_toolchange}
 ; I8_SIDE_PURGE_BEGIN
@@ -40,20 +38,18 @@ G1 E10 F{new_filament_e_feedrate * 0.3}
 ; Keep the total above 10 mm. The first 10 mm are fed slowly.
 G1 E{15 - 10} F{new_filament_e_feedrate * 0.8}
 M400
-{if !enable_prime_tower}
+; I8_WIPE_RETRACT
 G1 E-[new_retract_length_toolchange] F1800
-{endif}
 M106 S200
 {if filament_type[previous_extruder] == "PETG"}
 G4 P2500
 {else}
 {if filament_type[previous_extruder] == "PLA" && filament_type[next_extruder] == "PLA"}
-G4 P1200
+G4 P1800
 {else}
 G4 P2000
 {endif}
 {endif}
-M106 S70
 ; FLUSH_END
 ; WIPE
 SET_VELOCITY_LIMIT ACCEL=10000 ACCEL_TO_DECEL=10000
@@ -61,7 +57,12 @@ G0 X266 F30000
 G0 X277 F2400
 G0 X266 F30000
 G0 X277 F2400
+; Third pass, then leave the wiper more slowly.
 G0 X266 F30000
+G0 X277 F2400
+G0 X266 F6000
+M400
+M106 S70
 SET_VELOCITY_LIMIT ACCEL=5000 ACCEL_TO_DECEL=5000
 {if enable_prime_tower}
 ; Stop at the side before returning to the slicer-selected tower entry.
@@ -71,13 +72,14 @@ G4 P150
 G1 X{x_after_toolchange} Y{y_after_toolchange} F6000
 M400
 G1 Z{toolchange_z} F600
+; I8_WIPE_RESTORE - recover only after reaching the tower.
+G1 E[new_retract_length_toolchange] F1800
 {endif}
 ; I8_SIDE_PURGE_END
 {else}
 ; I8_TIMED_FLUSH_HANDOFF - the stock timed-flush script owns the T command.
 {endif}
 {endif}
-; I8_ACTIVE_END
 
 ; OFFICIAL BACKUP - SPARKX i8 0.4 nozzle, Creality Print 7.3
 ; Full-width brackets in this backup keep slicer macros inactive.
