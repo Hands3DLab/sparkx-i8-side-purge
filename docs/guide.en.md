@@ -8,7 +8,7 @@
 > **Time cost.** Side flushing adds roughly **6 seconds per color change** when it runs, including about **1 extra second** for the improved wipe compared with the previous template. These are estimates; actual time varies. The extra time adds up on prints with frequent changes. If print time is a priority, skip both the preset import and the side-flush template.
 
 
-**v7.3.2-r2 wipe update.** Both installation options include pressure relief, 1.8 seconds of PLA cooling, three wipes, and a final departure at 100 mm/s. With a tower, the preset retract length is restored at the tower. Without a tower, the slicer handles recovery. The supplied retract length is 0.8 mm; zero disables pressure relief. Check waste pickup and the first line after returning.
+**v0.1 wipe update.** Both installation options include pressure relief, 1.8 seconds of PLA cooling, three wipes, and a final departure at 100 mm/s. With a tower, the preset retract length is restored at the tower. Without a tower, the slicer handles recovery. The supplied retract length is 0.8 mm; zero disables pressure relief. Check waste pickup and the first line after returning.
 
 ## 1. Install
 

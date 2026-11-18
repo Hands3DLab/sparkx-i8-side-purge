@@ -1,5 +1,5 @@
 ; Hands3DLab | SPARKX i8 0.4 mm | PLA | 15 mm side purge | with-tower
-; v7.3.2-r2 | Creality Print 7.3.2: paste into Change filament G-code.
+; v0.1 for Creality Print 7.3.2: paste into Change filament G-code.
 ; Cool for 1.8 s, wipe three times, retract during departure.
 ; Uses the preset toolchange retract length; tower mode restores it at the tower.
 

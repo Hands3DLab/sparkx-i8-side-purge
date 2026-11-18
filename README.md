@@ -2,7 +2,7 @@
 
 [简体中文](README.zh-CN.md) · [Hands3DLab Software](https://hands3dlab.com/soft)
 
-**Release: v7.3.2-r2 · Creality Print 7.3.2**
+**Release: v0.1 for Creality Print 7.3.2**
 
 ## 1. Why color bleed can occur and how side flushing helps
 
@@ -50,7 +50,7 @@ Reslice after either setup. Check the color changes and prime tower in **Preview
 
 [With-tower test project and presets](presets/with-tower/) · [No-tower test project and presets](presets/no-tower/) · [Illustrated steps and flush adjustments](docs/guide.en.md)
 
-**v7.3.2-r2** includes the improved wipe in both templates and all bundled presets: pressure relief after flushing, 1.8 seconds of PLA cooling, three wipes, and a slower final departure. The with-tower template restores the retracted filament at the tower; the no-tower template leaves recovery to the slicer. The maintainer reports reduced waste pickup in a print test; results vary with filament and wiper condition.
+**v0.1** includes the improved wipe in both templates and all bundled presets: pressure relief after flushing, 1.8 seconds of PLA cooling, three wipes, and a slower final departure. The with-tower template restores the retracted filament at the tower; the no-tower template leaves recovery to the slicer. The maintainer reports reduced waste pickup in a print test; results vary with filament and wiper condition.
 
 ## 3. Risks and precautions
 
