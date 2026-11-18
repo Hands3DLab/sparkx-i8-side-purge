@@ -2,7 +2,7 @@
 
 [English](README.md) · [Hands3DLab 软件](https://hands3dlab.com/soft)
 
-**发布版本：v0.1 for Creality Print 7.3.2**
+**[v0.1 for Creality Print 7.3.2](https://github.com/Hands3DLab/sparkx-i8-side-purge/releases/download/v0.1-for-CrealityPrint-7.3.2/Hands3DLab-SPARKX-i8-Side-Purge-v0.1-for-CrealityPrint-7.3.2.zip)** · 点击版本号下载 ZIP
 
 ## 1. 为什么会串色，侧边冲刷有什么效果
 

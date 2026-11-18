@@ -2,7 +2,7 @@
 
 [简体中文](README.zh-CN.md) · [Hands3DLab Software](https://hands3dlab.com/soft)
 
-**Release: v0.1 for Creality Print 7.3.2**
+**[v0.1 for Creality Print 7.3.2](https://github.com/Hands3DLab/sparkx-i8-side-purge/releases/download/v0.1-for-CrealityPrint-7.3.2/Hands3DLab-SPARKX-i8-Side-Purge-v0.1-for-CrealityPrint-7.3.2.zip)** · Download ZIP
 
 ## 1. Why color bleed can occur and how side flushing helps
 
