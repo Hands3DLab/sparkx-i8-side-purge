@@ -19,7 +19,7 @@ For the **SPARKX i8 with a 0.4 mm nozzle and PLA**. The supplied test projects w
 Save a copy of the current official printer preset and replace the **Change filament G-code** field. This preserves the current motion, temperature, and other machine defaults. After a slicer upgrade, start with a fresh copy of the updated official preset and verify the template with a new slice.
 
 1. In **Prepare**, select the official **SPARKX i8 0.4 mm** preset. Click the pencil next to it and open **Machine G-code → Change filament G-code**. Back up the existing field.
-2. Choose the template that matches **Prime tower**: [With-tower G-code](../gcode/sparkx-i8-with-tower-change-filament.txt) · [No-tower G-code](../gcode/sparkx-i8-no-tower-change-filament.txt). Copy the whole file into the field, then use **Save as** to create a user printer preset.
+2. Choose the template that matches **Prime tower**: [With-tower G-code](../gcode/Hands3DLab-Sparki8-0.4-with-tower.txt) · [No-tower G-code](../gcode/Hands3DLab-Sparki8-0.4-no-tower.txt). Copy the whole file into the field, then use **Save as** to create a user printer preset.
 
    <img src="images/machine-gcode.png" alt="Highlighted Change filament G-code field and Time flush interval set to 0 seconds" width="768">
 
@@ -29,7 +29,7 @@ Save a copy of the current official printer preset and replace the **Change fila
 
 ### Option B · One-click import
 
-For a quick test, open the `.3mf` in the [with-tower](../presets/with-tower/) or [no-tower](../presets/no-tower/) folder as a project to load the bundled settings. For your own model, use **File → Import → Import Configs** to select the matching printer and process JSON files together. Include the filament JSON for the with-tower setup. In **Prepare**, select the imported presets and check the prime tower and filament slots.
+For a quick test, open `*-test.3mf` in the [with-tower](../presets/with-tower/) or [no-tower](../presets/no-tower/) folder as a project to load the bundled settings. For your own model, use **File → Import → Import Configs** to select `*-printer.json` and `*-process.json` from the matching folder together. Include `*-filament.json` for the with-tower setup. In **Prepare**, select the imported presets and check the prime tower and filament slots.
 
 <img src="images/import-configs-menu.png" alt="Creality Print File → Import menu with Import Configs highlighted" width="768">
 
@@ -43,9 +43,9 @@ For a quick test, open the `.3mf` in the [with-tower](../presets/with-tower/) or
 
 | Control | What to select |
 | --- | --- |
-| **Printer** | A Hands3DLab SPARKX i8 printer ending in `PLA Fast`. Match `With Tower` or `No Tower` and confirm 0.4 mm nozzle. |
-| **Filament** | Verify the color-to-slot mapping. With tower, select `Hands3DLab - SPARKX i8 Generic PLA - Side Purge` for each slot that participates in the test. This enables the reduced tower flush settings. No tower can use the included project's Generic PLA settings. |
-| **Process** | Select the matching `With Tower` or `No Tower` process ending in `PLA Fast`. Verify **Prime tower** is on or off as intended. |
+| **Printer** | `Hands3DLab - Sparki8 - 0.4 - With Tower` or `Hands3DLab - Sparki8 - 0.4 - No Tower`. Match the tower setting and confirm a 0.4 mm nozzle. |
+| **Filament** | Verify the color-to-slot mapping. With tower, select `Hands3DLab - Sparki8 - 0.4 - PLA` for each slot that participates in the test. This enables the reduced tower flush settings. No tower can use the included project's Generic PLA settings. |
+| **Process** | Select the matching `With Tower` or `No Tower` preset ending in `Process`. Verify **Prime tower** is on or off as intended. |
 | **Slice plate** | Slice once the printer, process, and filament selections are correct. |
 
 ![Printer list showing With Tower, No Tower, and system presets](images/select-printer-preset.jpg)

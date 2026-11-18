@@ -2,7 +2,9 @@
 
 [English](README.md) · [Hands3DLab 软件](https://hands3dlab.com/soft)
 
-**[v0.1 for Creality Print 7.3.2](https://github.com/Hands3DLab/sparkx-i8-side-purge/releases/download/v0.1-for-CrealityPrint-7.3.2/Hands3DLab-SPARKX-i8-Side-Purge-v0.1-for-CrealityPrint-7.3.2.zip)** · 点击版本号下载 ZIP
+**[v0.1 for Creality Print 7.3.2](https://github.com/Hands3DLab/sparkx-i8-side-purge/releases/download/v0.1-for-CrealityPrint-7.3.2/Hands3DLab-Sparki8-0.4-v0.1-for-CrealityPrint-7.3.2.zip)** · 点击版本号下载 ZIP
+
+下载包按 `with-tower`（带塔）和 `no-tower`（无塔）分组，按是否启用擦料塔选择。独立换料代码见 `gcode/Hands3DLab-Sparki8-0.4-with-tower.txt` 或 `gcode/Hands3DLab-Sparki8-0.4-no-tower.txt`。
 
 ## 1. 为什么会串色，侧边冲刷有什么效果
 
@@ -28,7 +30,7 @@
 从当前官方机型预设另存副本，只替换「换料 G-code」字段，保留当前版本的运动、温控等机器设置。升级后可从新版官方预设重新建副本，再核对模板和切片结果。
 
 1. 在 **Prepare** 选择官方 **SPARKX i8 0.4 mm**，点击机型旁的铅笔，进入 **Machine G-code → Change filament G-code**。先备份原字段内容。
-2. 按 **Prime tower** 开关选模板：[带擦料塔 G-code](gcode/sparkx-i8-with-tower-change-filament.txt) · [无擦料塔 G-code](gcode/sparkx-i8-no-tower-change-filament.txt)。复制文件全文，替换字段，并用 **Save as** 保存为新的用户机型预设。
+2. 按 **Prime tower** 开关选模板：[带擦料塔 G-code](gcode/Hands3DLab-Sparki8-0.4-with-tower.txt) · [无擦料塔 G-code](gcode/Hands3DLab-Sparki8-0.4-no-tower.txt)。复制文件全文，替换字段，并用 **Save as** 保存为新的用户机型预设。
 
    <img src="docs/images/machine-gcode.png" alt="标出的换料 G-code 字段和设为 0 秒的 Time flush interval" width="768">
 
@@ -38,7 +40,7 @@
 
 ### 方式 B：一键导入
 
-快速试用时，把[带塔](presets/with-tower/)或[无塔](presets/no-tower/)文件夹内的 `.3mf` 作为项目打开，即可载入随附预设。用于自己的模型时，通过 **File → Import → Import Configs** 一次选中同组的机型和工艺 JSON，带塔组同时选中耗材 JSON。回到 **Prepare** 选用导入的预设，核对擦料塔开关和料槽。
+快速试用时，把[带塔](presets/with-tower/)或[无塔](presets/no-tower/)文件夹内的 `*-test.3mf` 作为项目打开，即可载入随附预设。用于自己的模型时，通过 **File → Import → Import Configs** 一次选中同组的 `*-printer.json`（机型）和 `*-process.json`（工艺），带塔组同时选中 `*-filament.json`（耗材）。回到 **Prepare** 选用导入的预设，核对擦料塔开关和料槽。
 
 <img src="docs/images/import-configs-menu.png" alt="Creality Print 的 File → Import 菜单，Import Configs 已高亮" width="768">
 
